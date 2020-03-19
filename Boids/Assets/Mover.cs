@@ -11,6 +11,7 @@ public class Mover : MonoBehaviour
     float halfCameraY;
     float halfWidth;
     float halfHeigt;
+    Vector2 movement;
 
 
 
@@ -25,7 +26,7 @@ public class Mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 movement = Vector2.up * speed * Time.deltaTime;
+        movement = Vector2.up * speed * Time.deltaTime;
         transform.Translate(movement);
         halfCameraY = cam.orthographicSize;
         halfCameraX = halfCameraY * cam.aspect;
@@ -41,5 +42,9 @@ public class Mover : MonoBehaviour
         if(transform.position.y > yEdgeValue) newPos.y = -yEdgeValue;
         if(transform.position.y < -yEdgeValue) newPos.y = yEdgeValue;
         transform.position = newPos;
+    }
+
+    public Vector2 GetMovementVector(){
+        return movement;
     }
 }

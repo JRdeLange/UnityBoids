@@ -12,6 +12,8 @@ public class BoidSpawner : MonoBehaviour
     public int maxNumberOfBoids;
     int currNumberOfBoids;
 
+    List<GameObject> boids = new List<GameObject>();
+
     bool nrOfBoidsChanged;
 
     // Start is called before the first frame update
@@ -39,6 +41,7 @@ public class BoidSpawner : MonoBehaviour
             for (int i = 0; i < nrOfKillsNeeded; i++)
             {
                 if (toBeKilled[i] != null){
+                    boids.Remove(toBeKilled[i]);
                     Destroy(toBeKilled[i]);
                     currNumberOfBoids--;
                 }
@@ -53,6 +56,11 @@ public class BoidSpawner : MonoBehaviour
         spawnPos.x = UnityEngine.Random.Range(-camInfo.getHalfX(), camInfo.getHalfX());
         spawnPos.y = UnityEngine.Random.Range(-camInfo.getHalfY(), camInfo.getHalfY());
         float rotation = UnityEngine.Random.Range(0, 360);
-        Instantiate(boid, spawnPos, Quaternion.Euler(0,0,rotation));
+        GameObject newBoid = (GameObject)Instantiate(boid, spawnPos, Quaternion.Euler(0,0,rotation));
+        boids.Add(newBoid);
+    }
+
+    public List<GameObject> getListOfBoids(){
+        return boids;
     }
 }

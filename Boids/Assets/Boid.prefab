@@ -45,6 +45,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -139,7 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92048e0202a379f4ea009593450582b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avoidDistance: 0
+  avoidDistance: 1.96
+  tester: 37
 --- !u!114 &-8776575438696960054
 MonoBehaviour:
   m_ObjectHideFlags: 0
